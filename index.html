@@ -1,697 +1,1947 @@
-Build a polished, technically credible **engineering research portfolio website** for a high-school aerospace/mechanical engineering student, Yatharth Rajakumar, showcasing his work on a **hydrofoil actuation and supervisory control system developed at the University of Massachusetts Amherst Ocean Resources and Renewable Energy Laboratory (ORRELab)**.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hydrofoil Actuation & Modular SCADA Control | Yatharth Rajakumar</title>
+
+    <meta
+        name="description"
+        content="Engineering research portfolio documenting Yatharth Rajakumar's hydrofoil actuation and modular SCADA control work at UMass Amherst ORRELab."
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     TOP PROGRESS BAR
+========================================================= -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a href="#top" class="brand">
+            <span class="brand-mark">YR</span>
+            <span class="brand-text">
+                <strong>Hydrofoil Control</strong>
+                <small>Engineering Portfolio</small>
+            </span>
+        </a>
+
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open navigation"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="#problem">Problem</a>
+            <a href="#hardware">Hardware</a>
+            <a href="#control">Control</a>
+            <a href="#architecture">Architecture</a>
+            <a href="#repository">Code</a>
+            <a href="#research">Research</a>
+            <a href="#contribution">Contribution</a>
+        </div>
+
+    </nav>
+
+</header>
+
+
+<main id="top">
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+<section class="hero">
+
+    <div class="hero-grid"></div>
+
+    <div class="hero-schematic">
+        <div class="axis axis-x"></div>
+        <div class="axis axis-y"></div>
+        <div class="axis-label x-label">θ</div>
+        <div class="axis-label y-label">y</div>
+
+        <div class="signal signal-one"></div>
+        <div class="signal signal-two"></div>
+        <div class="signal signal-three"></div>
+
+        <div class="hydrofoil-line">
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="angle-marker">
+            <div class="angle-arc"></div>
+            <span>90°</span>
+        </div>
+    </div>
 
-The website will be submitted as part of a STEM/engineering college admissions portfolio. It should feel like a serious engineering project page written for an engineering professor or researcher—not like a generic high-school project website.
+    <div class="container hero-content">
 
-## Core story
+        <div class="eyebrow">
+            <span class="status-dot"></span>
+            UMass Amherst · ORRELab · Marine Energy
+        </div>
 
-The central story is:
+        <div class="hero-layout">
 
-> The hardest moment was when I was first handed the motor and had no idea what to do with it. When the shaft finally moved, I realized I had learned how to actuate a hydrofoil. I started the project with almost no expectations and finished understanding an entirely new engineering domain: how mechanical hardware, electronics, embedded software, control systems, communication layers, and supervisory software interact as one system.
+            <div class="hero-copy">
 
-The website should communicate **curiosity, learning, systems thinking, experimentation, and engineering growth**.
+                <div class="project-number">PROJECT 01 / ACTUATION SYSTEMS</div>
 
-Do NOT portray Yatharth as having independently invented the entire laboratory architecture. Clearly distinguish between:
+                <h1>
+                    From a motor I didn't understand
+                    <span>to a system I could control.</span>
+                </h1>
 
-* what Yatharth personally designed and implemented;
-* what was developed collaboratively with the UMass research team;
-* what was planned but not yet fully implemented.
+                <p class="hero-description">
+                    A hydrofoil actuation system developed for controlled marine-energy
+                    experiments, evolving from low-level Arduino motor control into
+                    a modular, hardware-agnostic supervisory architecture.
+                </p>
 
-## Project title
+                <div class="hero-actions">
+                    <a href="#problem" class="button button-primary">
+                        Explore the System
+                        <span>↓</span>
+                    </a>
 
-Use:
+                    <button class="button button-secondary" id="openPdfHero">
+                        View Research
+                        <span>↗</span>
+                    </button>
 
-**Hydrofoil Actuation & Modular SCADA Control**
+                    <a
+                        href="https://github.com/LittlePrince-king/hydrofoil-scada-system"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="button button-secondary"
+                    >
+                        GitHub
+                        <span>↗</span>
+                    </a>
+                </div>
 
-Subtitle:
+            </div>
 
-**Designing a precision actuation subsystem and building the software architecture around it**
 
-Include:
+            <div class="hero-system-card">
 
-**Yatharth Rajakumar**
-Amherst Regional High School
-University of Massachusetts Amherst — Ocean Resources and Renewable Energy Laboratory
+                <div class="system-card-header">
+                    <span>SYSTEM STATUS</span>
+                    <span class="live-indicator">DOCUMENTED</span>
+                </div>
 
-Do not exaggerate his role.
+                <div class="system-visual">
 
----
+                    <div class="node node-host">
+                        <span class="node-label">HOST</span>
+                        <strong>SCADA</strong>
+                    </div>
 
-# 1. HERO SECTION
+                    <div class="flow-line vertical">
+                        <span></span>
+                    </div>
 
-Create a visually striking hero section.
+                    <div class="node node-controller">
+                        <span class="node-label">ECU</span>
+                        <strong>Arduino</strong>
+                    </div>
 
-Headline:
+                    <div class="flow-line vertical">
+                        <span></span>
+                    </div>
 
-**From a motor I didn't understand to a system I could control.**
+                    <div class="node-row">
 
-Supporting text:
+                        <div class="node node-driver">
+                            <span class="node-label">DRIVER</span>
+                            <strong>CL57T</strong>
+                        </div>
 
-A hydrofoil actuation system developed for controlled marine-energy experiments, evolving from low-level Arduino motor control into a modular, hardware-agnostic supervisory architecture.
+                        <div class="flow-line horizontal">
+                            <span></span>
+                        </div>
 
-Buttons:
+                        <div class="node node-motor">
+                            <span class="node-label">ACTUATOR</span>
+                            <strong>NEMA 17</strong>
+                        </div>
 
-* **Explore the System**
-* **View Research Poster**
-* **View GitHub**
+                    </div>
 
-The GitHub button should link to:
+                </div>
 
-https://github.com/LittlePrince-king/hydrofoil-scada-system
+                <div class="system-card-footer">
+                    <span>Hardware</span>
+                    <span>Firmware</span>
+                    <span>Control</span>
+                    <span>Supervision</span>
+                </div>
 
-The research presentation/public abstract is:
+            </div>
 
-https://umerc2026.exordo.com/programme/presentation/157
+        </div>
 
-The final public abstract/PDF is:
 
-https://umerc2026.exordo.com/files/papers/174/final_draft/UMERC_2026_ECU_Prototype.pdf
+        <div class="hero-meta">
 
-Use subtle animated technical graphics in the background: coordinate axes, motor pulses, signal traces, angular measurements, or a simplified hydrofoil silhouette.
+            <div>
+                <span>ENGINEER</span>
+                <strong>Yatharth Rajakumar</strong>
+            </div>
 
-Do NOT make the page flashy or gamer-like.
+            <div>
+                <span>SCHOOL</span>
+                <strong>Amherst Regional High School</strong>
+            </div>
 
----
+            <div>
+                <span>RESEARCH</span>
+                <strong>UMass Amherst · ORRELab</strong>
+            </div>
 
-# 2. THE QUESTION
+        </div>
 
-Create a section introducing the engineering problem.
+    </div>
 
-Heading:
+    <div class="scroll-cue">
+        <span></span>
+        Scroll to investigate
+    </div>
 
-**How do you make a hydrofoil move precisely enough to become an experiment?**
+</section>
 
-Explain that marine-energy experiments require controlled positioning and repeatable actuation. The hydrofoil needed to:
 
-* move to defined angular positions;
-* return to a known reference position;
-* oscillate between two positions;
-* hold its position using an electromagnetic brake;
-* eventually communicate with higher-level experimental control systems.
+<!-- =========================================================
+     PROJECT QUESTION
+========================================================= -->
+<section class="section section-light" id="problem">
 
-Explain that the project began as a practical hardware problem and evolved into a systems-engineering problem.
+    <div class="container">
 
-Use a visual progression:
+        <div class="section-intro reveal">
 
-**Mechanical system → Motor → Driver → Microcontroller → Control logic → Supervisory software**
+            <div class="section-index">01 — THE QUESTION</div>
 
----
+            <h2>
+                How do you make a hydrofoil move
+                <em>precisely enough</em> to become an experiment?
+            </h2>
 
-# 3. STARTING FROM ZERO
+            <p>
+                Marine-energy experiments depend on repeatable physical motion.
+                The hydrofoil needed to move to defined angular positions,
+                return to a known reference, oscillate between positions, and
+                hold position using an electromagnetic brake.
+            </p>
 
-Create a narrative section called:
+            <p>
+                What began as a practical hardware problem gradually became a
+                systems-engineering problem: how do mechanical hardware,
+                electronics, embedded software, communication, and supervisory
+                software interact as one system?
+            </p>
 
-**I was handed a motor. I had to figure out the rest.**
+        </div>
 
-Explain that the initial challenge was not simply writing code. Yatharth had to learn:
 
-* stepper motor operation;
-* microstepping;
-* closed-loop motor control;
-* STEP/DIR signaling;
-* electromagnetic brake control;
-* relay operation;
-* Arduino hardware interfaces;
-* timing and pulse generation;
-* mechanical coupling through a timing belt;
-* angular positioning.
+        <!-- INTERACTIVE SYSTEM PIPELINE -->
 
-Emphasize the learning process rather than claiming prior expertise.
+        <div class="system-pipeline reveal" id="systemPipeline">
 
-Use an interactive-looking timeline:
+            <div class="pipeline-node active" data-step="mechanical">
+                <span class="pipeline-number">01</span>
+                <strong>Mechanical</strong>
+                <small>Hydrofoil + shaft</small>
+            </div>
 
-**Motor → Wiring → First Movement → Position Control → Oscillation → Accuracy Testing → Abstraction → SCADA**
+            <div class="pipeline-connector"></div>
 
----
+            <div class="pipeline-node" data-step="motor">
+                <span class="pipeline-number">02</span>
+                <strong>Motor</strong>
+                <small>NEMA 17</small>
+            </div>
 
-# 4. HARDWARE SYSTEM
+            <div class="pipeline-connector"></div>
 
-Create a technical hardware section.
+            <div class="pipeline-node" data-step="driver">
+                <span class="pipeline-number">03</span>
+                <strong>Driver</strong>
+                <small>CL57T</small>
+            </div>
 
-Display the major components as cards:
+            <div class="pipeline-connector"></div>
 
-### Controller
+            <div class="pipeline-node" data-step="controller">
+                <span class="pipeline-number">04</span>
+                <strong>Controller</strong>
+                <small>Arduino</small>
+            </div>
 
-Arduino UNO R3
+            <div class="pipeline-connector"></div>
 
-### Motor Driver
+            <div class="pipeline-node" data-step="control">
+                <span class="pipeline-number">05</span>
+                <strong>Control</strong>
+                <small>Position logic</small>
+            </div>
 
-CL57T V4.1 Closed-Loop Stepper Driver
+            <div class="pipeline-connector"></div>
 
-### Actuator
+            <div class="pipeline-node" data-step="scada">
+                <span class="pipeline-number">06</span>
+                <strong>Supervision</strong>
+                <small>SCADA</small>
+            </div>
 
-NEMA 17 closed-loop stepper motor with encoder and electromagnetic brake
+        </div>
 
-### Power
 
-24 V DC power supply
+        <div class="pipeline-detail reveal" id="pipelineDetail">
 
-### Brake Control
+            <div class="pipeline-detail-index">LAYER 01</div>
 
-Relay module
+            <h3>Mechanical system</h3>
 
-### Mechanical Transmission
+            <p>
+                The control problem ultimately becomes a physical positioning
+                problem: translating electrical commands into repeatable
+                hydrofoil motion through the motor, transmission, and shaft.
+            </p>
 
-Timing belt / hydrofoil shaft coupling
+        </div>
 
-### Development Equipment
+    </div>
 
-JESVERTY bench power supply
+</section>
 
-State clearly:
 
-**Yatharth designed and integrated the entire motor-control subsystem around the provided motor.**
+<!-- =========================================================
+     STARTING FROM ZERO
+========================================================= -->
+<section class="section section-dark" id="learning">
 
-The motor itself was not designed by Yatharth.
+    <div class="container">
 
-Mention that the hardware integration included:
+        <div class="split-heading reveal">
 
-* power distribution;
-* STEP/DIR control;
-* brake relay control;
-* shared signal grounds;
-* motor-driver wiring;
-* mechanical coupling;
-* Arduino firmware.
+            <div>
+                <div class="section-index">02 — LEARNING CURVE</div>
 
-Create a clean schematic-style visual showing:
+                <h2>
+                    I was handed a motor.
+                    <span>I had to figure out the rest.</span>
+                </h2>
+            </div>
 
-24 V Supply
-↓
-CL57T Driver → NEMA 17 → Timing Belt → Hydrofoil
+            <div class="heading-note">
+                <span class="mono-label">INITIAL CONDITION</span>
 
-and separately:
+                <strong>
+                    Very little prior experience with
+                    stepper actuation or supervisory control.
+                </strong>
+            </div>
 
-Arduino → STEP/DIR → Driver
-Arduino → Relay → Electromagnetic Brake
+        </div>
 
----
 
-# 5. ORIGINAL CONTROL SYSTEM
+        <div class="timeline reveal">
 
-Create a section called:
+            <div class="timeline-progress"></div>
 
-**The first system was deliberately low-level.**
+            <button class="timeline-item active" data-timeline="motor">
+                <span class="timeline-dot"></span>
+                <span class="timeline-number">01</span>
+                <strong>Motor</strong>
+                <small>Understand the actuator</small>
+            </button>
 
-Explain that the original implementation used Arduino firmware to directly generate motor pulses and control the brake.
+            <button class="timeline-item" data-timeline="wiring">
+                <span class="timeline-dot"></span>
+                <span class="timeline-number">02</span>
+                <strong>Wiring</strong>
+                <small>Build the electrical path</small>
+            </button>
 
-Mention:
+            <button class="timeline-item" data-timeline="movement">
+                <span class="timeline-dot"></span>
+                <span class="timeline-number">03</span>
+                <strong>First movement</strong>
+                <small>Generate STEP/DIR signals</small>
+            </button>
 
-* STEP pin: D4
-* DIR pin: D3
-* Brake relay: D7
-* 12,500 pulses/revolution was initially used in the firmware
-* target-angle calculations
-* pulse timing
-* serial command for returning to home
-* static positioning mode
-* oscillation mode
+            <button class="timeline-item" data-timeline="position">
+                <span class="timeline-dot"></span>
+                <span class="timeline-number">04</span>
+                <strong>Position</strong>
+                <small>Translate angle into pulses</small>
+            </button>
 
-Do NOT present the old code as the final architecture.
+            <button class="timeline-item" data-timeline="oscillation">
+                <span class="timeline-dot"></span>
+                <span class="timeline-number">05</span>
+                <strong>Oscillation</strong>
+                <small>Command repeated motion</small>
+            </button>
 
-Include a collapsible code viewer containing a representative excerpt of the original Arduino implementation.
+            <button class="timeline-item" data-timeline="accuracy">
+                <span class="timeline-dot"></span>
+                <span class="timeline-number">06</span>
+                <strong>Accuracy</strong>
+                <small>Test repeatability</small>
+            </button>
 
-Use syntax highlighting.
+            <button class="timeline-item" data-timeline="abstraction">
+                <span class="timeline-dot"></span>
+                <span class="timeline-number">07</span>
+                <strong>Abstraction</strong>
+                <small>Separate hardware from software</small>
+            </button>
 
----
+            <button class="timeline-item" data-timeline="scada">
+                <span class="timeline-dot"></span>
+                <span class="timeline-number">08</span>
+                <strong>SCADA</strong>
+                <small>Think beyond one actuator</small>
+            </button>
 
-# 6. THE FAILURE THAT CHANGED THE DESIGN
+        </div>
 
-This should be one of the most important sections.
 
-Heading:
+        <div class="timeline-display reveal">
 
-**The motor taught me that code can be correct and still be wrong.**
+            <div class="timeline-display-number" id="timelineDisplayNumber">
+                01
+            </div>
 
-Explain the microstepping mismatch.
+            <div>
+                <div class="mono-label" id="timelineDisplayLabel">
+                    UNDERSTAND THE ACTUATOR
+                </div>
 
-The motor/driver configuration and the value assumed in the firmware did not initially match. The result was a mismatch between commanded and actual angular movement.
+                <h3 id="timelineDisplayTitle">
+                    Motor
+                </h3>
 
-Do not invent exact details that are unknown.
+                <p id="timelineDisplayText">
+                    Learn how the stepper motor, encoder, driver, and brake
+                    interact before attempting to automate the system.
+                </p>
+            </div>
 
-Explain the engineering lesson:
+        </div>
 
-> A control system is only as accurate as the assumptions connecting its physical and software layers.
+    </div>
 
-Show a visual:
+</section>
 
-**Assumed microstepping → commanded angle → actual motion**
 
-with the mismatch highlighted.
+<!-- =========================================================
+     HARDWARE
+========================================================= -->
+<section class="section section-light" id="hardware">
 
-Then show the correction process:
+    <div class="container">
 
-**Identify mismatch → inspect driver configuration → reconcile pulse/revolution assumptions → retest**
+        <div class="section-heading reveal">
 
-This should demonstrate debugging rather than hiding failure.
+            <div class="section-index">03 — HARDWARE</div>
 
----
+            <h2>The physical system.</h2>
 
-# 7. ACCURACY TESTING
+            <p>
+                Yatharth designed and integrated the motor-control subsystem
+                around the laboratory-provided actuator. The motor itself was
+                not designed by Yatharth.
+            </p>
 
-Create a section called:
+        </div>
 
-**Could it actually return where I told it to?**
 
-Explain the angular repeatability test.
+        <div class="hardware-layout">
 
-The system was moved approximately 90 degrees, then commanded through approximately 3-degree increments 30 times, returning to the original position.
+            <div class="hardware-diagram reveal">
 
-The purpose was to test approximately ±1° angular positioning/repeatability.
+                <div class="diagram-title">
+                    <span>POWER + CONTROL PATH</span>
+                    <span class="mono-label">SYSTEM VIEW</span>
+                </div>
 
-Also mention the earlier static and oscillation tests.
+                <div class="hardware-flow">
 
-Results to communicate carefully:
+                    <div class="hardware-block power">
+                        <span>POWER</span>
+                        <strong>24 V DC</strong>
+                    </div>
 
-* motor completed commanded movements;
-* no obvious missed-step behavior was observed;
-* the system returned to the original position after repeated incremental movements;
-* electromagnetic brake control functioned;
-* static positioning and oscillation behavior were demonstrated.
+                    <div class="hardware-arrow">↓</div>
 
-IMPORTANT:
+                    <div class="hardware-block driver">
+                        <span>DRIVER</span>
+                        <strong>CL57T V4.1</strong>
+                        <small>Closed-loop stepper</small>
+                    </div>
 
-Do NOT claim that full hydrodynamic/flume performance was validated.
+                    <div class="hardware-arrow">↓</div>
 
-Yatharth **did not conduct the final flow experiments**.
+                    <div class="hardware-block motor">
+                        <span>ACTUATOR</span>
+                        <strong>NEMA 17</strong>
+                        <small>Encoder + brake</small>
+                    </div>
 
-State explicitly:
+                    <div class="hardware-arrow">↓</div>
 
-**Scope boundary:**
-This project focused on designing and validating the actuation subsystem. Full hydrodynamic characterization was outside Yatharth's testing scope.
+                    <div class="hardware-block mechanical">
+                        <span>TRANSMISSION</span>
+                        <strong>Timing Belt</strong>
+                        <small>Hydrofoil shaft</small>
+                    </div>
 
----
+                </div>
 
-# 8. FROM HARDWARE TO SYSTEM ARCHITECTURE
 
-This is the key advanced engineering section.
+                <div class="control-branch">
 
-Heading:
+                    <div class="branch-line"></div>
 
-**The motor worked. Then I realized the architecture didn't scale.**
+                    <div class="hardware-block controller">
+                        <span>CONTROLLER</span>
+                        <strong>Arduino UNO</strong>
+                        <small>STEP / DIR</small>
+                    </div>
 
-Explain that direct Arduino code worked for one actuator, but a larger experimental facility would eventually require:
+                    <div class="hardware-block relay">
+                        <span>BRAKE</span>
+                        <strong>Relay</strong>
+                        <small>Electromagnetic brake</small>
+                    </div>
 
-* multiple actuators;
-* different microcontrollers;
-* different motor drivers;
-* different sensors;
-* different experimental stations;
-* centralized monitoring;
-* data acquisition;
-* synchronization.
+                </div>
 
-Therefore, Yatharth contributed to the transition toward a modular architecture.
+            </div>
 
-Show:
 
-### Before
+            <div class="component-grid reveal">
 
-SCADA / PC
-↓
-Arduino
-↓
-Driver
-↓
-Motor
+                <article class="component-card">
+                    <span class="component-index">01</span>
+                    <span class="component-type">CONTROLLER</span>
+                    <h3>Arduino UNO R3</h3>
+                    <p>Embedded controller generating motor-control signals and handling brake logic.</p>
+                </article>
 
-### After
+                <article class="component-card">
+                    <span class="component-index">02</span>
+                    <span class="component-type">DRIVER</span>
+                    <h3>CL57T V4.1</h3>
+                    <p>Closed-loop stepper driver receiving STEP/DIR commands.</p>
+                </article>
 
-SCADA / Host PC
-↓
-Communication Layer
-↓
-ECU / Controller
-↓
-Device Abstraction
-↓
-Driver Abstraction
-↓
-Actuator
+                <article class="component-card">
+                    <span class="component-index">03</span>
+                    <span class="component-type">ACTUATOR</span>
+                    <h3>NEMA 17</h3>
+                    <p>Closed-loop stepper motor with encoder and electromagnetic brake.</p>
+                </article>
 
-with multiple ECUs:
+                <article class="component-card">
+                    <span class="component-index">04</span>
+                    <span class="component-type">POWER</span>
+                    <h3>24 V DC</h3>
+                    <p>Power source for the motor-control subsystem.</p>
+                </article>
 
-**Pump ECU | Gantry ECU | Wave ECU | Prototype ECU**
+                <article class="component-card">
+                    <span class="component-index">05</span>
+                    <span class="component-type">BRAKE</span>
+                    <h3>Relay Module</h3>
+                    <p>Interfaces the Arduino with the electromagnetic brake.</p>
+                </article>
 
-Explain that the architecture was developed **in collaboration with the UMass research team**, rather than solely by Yatharth.
+                <article class="component-card">
+                    <span class="component-index">06</span>
+                    <span class="component-type">MECHANICAL</span>
+                    <h3>Timing Belt</h3>
+                    <p>Mechanical coupling between the actuator and hydrofoil shaft.</p>
+                </article>
 
----
+            </div>
 
-# 9. HARDWARE ABSTRACTION / SOFTWARE ARCHITECTURE
+        </div>
 
-Create an interactive architecture diagram based on the actual repository structure.
 
-Show:
+        <!-- IMAGE PLACEHOLDER -->
+        <div class="media-placeholder reveal">
+            <!-- INSERT MOTOR / HYDROFOIL PHOTOGRAPH HERE -->
+            <div class="placeholder-icon">IMG</div>
+            <div>
+                <strong>Project photograph</strong>
+                <span>Place hydrofoil, motor, or wiring photograph in assets/images/</span>
+            </div>
+        </div>
 
-```text
-SCADA
-│
-├── system
-├── controller
-├── device
-├── actuators
-├── boards
-├── firmware
-├── protocol
-├── transport
-├── signals
-└── discovery
-```
+    </div>
 
-Explain that the purpose is to allow hardware components to be exchanged without rewriting the supervisory layer.
+</section>
 
-Example:
 
-```text
-SCADA
-  ↓
-Controller Interface
-  ↓
-Actuator Interface
-  ↓
-Motor Driver Interface
-  ↓
-Arduino / Other Controller
-```
+<!-- =========================================================
+     CONTROL SYSTEM
+========================================================= -->
+<section class="section section-dark" id="control">
 
-The key concept should be:
+    <div class="container">
 
-**Change the hardware without rebuilding the entire supervisory system.**
+        <div class="section-heading reveal">
 
-Make this interactive if practical:
+            <div class="section-index">04 — EMBEDDED CONTROL</div>
 
-* clicking a layer reveals its responsibility;
-* hovering over a module shows its purpose.
+            <h2>The first system was deliberately low-level.</h2>
 
-Do not invent specific functionality that isn't supported by the repository.
+            <p>
+                The initial implementation focused on understanding the
+                actuator itself. Arduino firmware directly generated motor
+                pulses, calculated target positions, and controlled the brake.
+            </p>
 
----
+        </div>
 
-# 10. SCADA VISION
 
-Heading:
+        <div class="control-grid">
 
-**The goal: one supervisory layer for many experimental systems.**
+            <div class="control-specs reveal">
 
-Explain that the Python SCADA system was designed to eventually provide:
+                <div class="spec-row">
+                    <span>STEP</span>
+                    <strong>D4</strong>
+                </div>
 
-* supervisory control;
-* hardware abstraction;
-* communication;
-* monitoring;
-* simulation;
-* controller coordination;
-* centralized oversight.
+                <div class="spec-row">
+                    <span>DIR</span>
+                    <strong>D3</strong>
+                </div>
 
-The dashboard is **not fully developed yet**.
+                <div class="spec-row">
+                    <span>BRAKE RELAY</span>
+                    <strong>D7</strong>
+                </div>
 
-Be transparent.
+                <div class="spec-row">
+                    <span>INITIAL PULSES / REV</span>
+                    <strong>12,500</strong>
+                </div>
 
-Show a conceptual architecture:
+                <div class="spec-row">
+                    <span>MODES</span>
+                    <strong>POSITION / OSCILLATION</strong>
+                </div>
 
-```text
-                  SCADA / HMI
-                      │
-              Supervisory Layer
-                      │
-              Communication
-                      │
-        ┌─────────────┼─────────────┐
-        ↓             ↓             ↓
-      ECU 1         ECU 2         ECU 3
-        ↓             ↓             ↓
-     Pump          Gantry        Hydrofoil
-```
+            </div>
 
-Mention that the repository already contains a simulation backend and modular software architecture, but the full production dashboard remains future work.
 
----
+            <div class="code-window reveal">
 
-# 11. REPOSITORY EXPLORER
+                <div class="code-header">
+                    <div class="window-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
 
-Create a section:
+                    <span>hydrofoil_controller.ino</span>
 
-**Explore the implementation**
+                    <button id="toggleCode" class="code-toggle">
+                        Expand
+                    </button>
+                </div>
 
-Show the actual repository structure:
+                <pre id="codeBlock"><code><span class="code-comment">// Representative excerpt from the original</span>
+<span class="code-comment">// low-level actuator implementation</span>
 
-```text
-src/
-├── actuators/
-├── boards/
-├── controller/
-├── device/
-├── discovery/
-├── firmware/
-├── protocol/
-├── signals/
-├── system/
-└── transport/
+<span class="code-keyword">const int</span> STEP_PIN = <span class="code-number">4</span>;
+<span class="code-keyword">const int</span> DIR_PIN = <span class="code-number">3</span>;
+<span class="code-keyword">const int</span> BRAKE_PIN = <span class="code-number">7</span>;
 
-ArduinoCode/
-web_dashboard/
-tasks/
-```
+<span class="code-keyword">const long</span> PULSES_PER_REV = <span class="code-number">12500</span>;
 
-Each folder should have a short explanation.
+<span class="code-keyword">void</span> moveToAngle(<span class="code-keyword">float</span> targetAngle) {
 
-Include a button:
+    <span class="code-keyword">long</span> targetPulses =
+        targetAngle / <span class="code-number">360.0</span>
+        * PULSES_PER_REV;
 
-**Open the full GitHub repository**
+    <span class="code-comment">// Set direction and generate STEP pulses</span>
+    digitalWrite(DIR_PIN, direction);
 
-linking to:
+    <span class="code-keyword">for</span> (<span class="code-keyword">long</span> i = <span class="code-number">0</span>;
+         i &lt; abs(targetPulses);
+         i++) {
 
-https://github.com/LittlePrince-king/hydrofoil-scada-system
+        digitalWrite(STEP_PIN, HIGH);
+        delayMicroseconds(stepDelay);
+        digitalWrite(STEP_PIN, LOW);
+        delayMicroseconds(stepDelay);
+    }
+}</code></pre>
 
-Make this look like a miniature codebase explorer.
+            </div>
 
----
+        </div>
 
-# 12. RESEARCH PUBLICATION / CONFERENCE
 
-Create a section:
+        <div class="control-mode-grid reveal">
 
-**From prototype to research communication**
+            <div class="mode-card">
+                <span>MODE 01</span>
+                <h3>Static positioning</h3>
+                <p>Move the hydrofoil toward a commanded angular position.</p>
+            </div>
 
-Display:
+            <div class="mode-card">
+                <span>MODE 02</span>
+                <h3>Oscillation</h3>
+                <p>Move repeatedly between two commanded positions.</p>
+            </div>
 
-**Design and Implementation of Embedded Controller Arrays for Marine Energy Prototype Actuation**
+            <div class="mode-card">
+                <span>MODE 03</span>
+                <h3>Reference return</h3>
+                <p>Return the system to a known reference position.</p>
+            </div>
 
-Authors:
+        </div>
 
-Yatharth Rajakumar
-Jose Jesus Mora Amaro
-Dr. Muhammad Sohail Hasan
-Prof. Krish Thiagarajan Sharman
+    </div>
 
-Affiliation:
+</section>
 
-University of Massachusetts Amherst
 
-Explain that the work was presented/accepted as part of:
+<!-- =========================================================
+     FAILURE / DEBUGGING
+========================================================= -->
+<section class="section section-light failure-section">
 
-**2026 University Marine Energy Research Conference + Marine Energy Technology Symposium (UMERC+METS)**
+    <div class="container">
 
-Make clear that Yatharth is a **first author**.
+        <div class="failure-header reveal">
 
-Do not call first authorship an "award."
+            <div class="section-index">05 — DEBUGGING</div>
 
-Instead say:
+            <h2>
+                The motor taught me that code can be
+                <em>correct</em> and still be wrong.
+            </h2>
 
-**First-author research contribution**
+        </div>
 
-Add buttons:
 
-* **Read Abstract**
-* **View Conference Presentation**
+        <div class="failure-layout">
 
-Use:
+            <div class="failure-story reveal">
 
-https://umerc2026.exordo.com/programme/presentation/157
+                <div class="failure-tag">INTERFACE FAILURE</div>
 
-and
+                <h3>The microstepping assumption did not match the physical configuration.</h3>
 
-https://umerc2026.exordo.com/files/papers/174/final_draft/UMERC_2026_ECU_Prototype.pdf
+                <p>
+                    The firmware contained an assumption about pulses per
+                    revolution that did not initially match the motor driver's
+                    actual configuration. The result was a mismatch between
+                    commanded and observed angular movement.
+                </p>
 
-If the browser supports PDF embedding, embed the PDF in a viewer.
+                <p>
+                    Rather than treating the behavior as a mysterious software
+                    error, the debugging process required tracing the assumption
+                    across the software and hardware boundary.
+                </p>
 
----
+                <div class="lesson-quote">
+                    <span>ENGINEERING LESSON</span>
+                    <strong>
+                        A control system is only as accurate as the assumptions
+                        connecting its physical and software layers.
+                    </strong>
+                </div>
 
-# 13. WHAT I ACTUALLY DID
+            </div>
 
-Create a very clear personal-contribution section.
 
-Heading:
+            <div class="debug-flow reveal">
 
-**My contribution**
+                <div class="debug-step">
+                    <span>01</span>
+                    <strong>Assumed microstepping</strong>
+                </div>
 
-Use a two-column layout.
+                <div class="debug-arrow">→</div>
 
-### Designed / Implemented by Yatharth
+                <div class="debug-step problem">
+                    <span>02</span>
+                    <strong>Commanded angle</strong>
+                    <small>Mismatch observed</small>
+                </div>
 
-* Complete hydrofoil motor-control subsystem
-* Motor-driver integration
-* Arduino control firmware
-* STEP/DIR signaling
-* Brake control
-* Relay integration
-* Power and signal wiring
-* Mechanical timing-belt integration
-* Target-angle control
-* Oscillation control
-* Static positioning tests
-* Angular repeatability testing
-* Debugging microstepping/angle mismatch
-* Hardware abstraction implementation in the software architecture
-* Python SCADA framework development
-* Simulation backend work
+                <div class="debug-arrow">→</div>
 
-### Developed collaboratively
+                <div class="debug-step problem">
+                    <span>03</span>
+                    <strong>Actual motion</strong>
+                    <small>Did not match expectation</small>
+                </div>
 
-* Overall ECU/SCADA architecture
-* Distributed controller concept
-* Laboratory-wide scalability framework
-* Research poster and conference contribution
+                <div class="debug-correction">
 
-### Not yet completed
+                    <span>CORRECTION PATH</span>
 
-* Full production SCADA dashboard
-* Full multi-ECU deployment
-* Full hydrodynamic flow characterization by Yatharth
+                    <div>
+                        Identify mismatch
+                        <b>→</b>
+                        Inspect driver configuration
+                        <b>→</b>
+                        Reconcile pulse assumptions
+                        <b>→</b>
+                        Retest
+                    </div>
 
-This section is extremely important for credibility.
+                </div>
 
----
+            </div>
 
-# 14. ENGINEERING LESSONS
+        </div>
 
-Create four cards:
+    </div>
 
-### Physical assumptions matter
+</section>
 
-A software constant is meaningless if it does not match the physical configuration.
 
-### Debugging is part of design
+<!-- =========================================================
+     ACCURACY
+========================================================= -->
+<section class="section section-dark">
 
-The microstepping mismatch became a lesson about validating interfaces between abstraction layers.
+    <div class="container">
 
-### Systems are more than components
+        <div class="accuracy-layout">
 
-A motor, driver, controller, communication protocol, and supervisory layer must work together.
+            <div class="accuracy-copy reveal">
 
-### Architecture determines scalability
+                <div class="section-index">06 — VALIDATION</div>
 
-A solution that works for one actuator may become a bottleneck when the system grows.
+                <h2>Could it actually return where I told it to?</h2>
 
----
+                <p>
+                    After establishing basic positioning and oscillation,
+                    the system was tested through repeated incremental
+                    movements to investigate angular repeatability.
+                </p>
 
-# 15. CLOSING STORY
+                <p>
+                    The system was moved approximately 90°, then commanded
+                    through approximately 3° increments 30 times, returning
+                    toward the original position.
+                </p>
 
-End with a visually strong section.
+                <div class="scope-boundary">
+                    <span>SCOPE BOUNDARY</span>
+                    <strong>
+                        Full hydrodynamic characterization was outside
+                        Yatharth's testing scope.
+                    </strong>
+                </div>
 
-Heading:
+            </div>
 
-**I started with a motor I didn't understand.**
 
-Text:
+            <div class="accuracy-dashboard reveal">
 
-I began this project knowing very little about stepper motors, embedded control, or supervisory systems. I finished with a working hydrofoil actuation subsystem and a deeper understanding of how mechanical hardware, electronics, software, and control architecture interact.
+                <div class="dashboard-top">
+                    <span>ACTUATION TEST</span>
+                    <span>REPEATABILITY</span>
+                </div>
 
-The most important result was not simply that the hydrofoil moved.
+                <div class="gauge">
 
-It was learning how to enter an unfamiliar engineering problem, isolate what I didn't understand, test assumptions, recover from failures, and gradually build a system in which the pieces could work together.
+                    <div class="gauge-ring">
+                        <div class="gauge-center">
+                            <strong>≈ 3°</strong>
+                            <span>increment</span>
+                        </div>
+                    </div>
 
-Final line:
+                </div>
 
-**The shaft moved first. The systems thinking came after.**
+                <div class="dashboard-stats">
 
----
+                    <div>
+                        <strong>90°</strong>
+                        <span>initial movement</span>
+                    </div>
 
-# DESIGN LANGUAGE
+                    <div>
+                        <strong>30×</strong>
+                        <span>incremental commands</span>
+                    </div>
 
-Use a sophisticated engineering aesthetic.
+                    <div>
+                        <strong>±1°</strong>
+                        <span>target test range</span>
+                    </div>
 
-Visual direction:
+                </div>
 
-* dark navy / charcoal background;
-* white text;
-* restrained cyan/blue engineering accents;
-* thin technical lines;
-* subtle grid backgrounds;
-* diagrams;
-* monospace labels;
-* clean sans-serif typography;
-* occasional large numerical callouts;
-* generous whitespace.
+            </div>
 
-Do NOT use:
+        </div>
 
-* cheesy rocket clipart;
-* generic AI-generated engineering imagery;
-* excessive gradients;
-* neon gamer aesthetics;
-* giant animations;
-* stock photos of laboratories;
-* fake data;
-* fake graphs.
 
-Use actual project images where available.
+        <div class="validation-results reveal">
 
----
+            <div class="result">
+                <span>01</span>
+                <strong>Commanded movement completed</strong>
+            </div>
 
-# TECHNICAL IMPLEMENTATION
+            <div class="result">
+                <span>02</span>
+                <strong>No obvious missed-step behavior observed</strong>
+            </div>
 
-Build this as a static website using:
+            <div class="result">
+                <span>03</span>
+                <strong>Return behavior demonstrated</strong>
+            </div>
 
-* `index.html`
-* `style.css`
-* `script.js`
+            <div class="result">
+                <span>04</span>
+                <strong>Brake control functioned</strong>
+            </div>
 
-No backend required.
+            <div class="result">
+                <span>05</span>
+                <strong>Static + oscillation modes demonstrated</strong>
+            </div>
 
-Make it GitHub Pages compatible.
+        </div>
 
-Requirements:
+    </div>
 
-* fully responsive;
-* desktop and mobile layouts;
-* smooth scrolling;
-* sticky navigation;
-* section highlighting;
-* scroll reveal animations;
-* accessible contrast;
-* keyboard-friendly navigation;
-* responsive diagrams;
-* PDF viewer/embedded document section;
-* GitHub links;
-* external links open in new tabs;
-* no frameworks unless absolutely necessary.
+</section>
 
-The website must load quickly.
 
-Organize assets cleanly:
+<!-- =========================================================
+     ARCHITECTURE
+========================================================= -->
+<section class="section section-light" id="architecture">
 
-```text
-assets/
-├── images/
-├── diagrams/
-├── documents/
-└── icons/
-```
+    <div class="container">
 
-Create placeholder paths for images/documents rather than inventing images.
+        <div class="section-heading reveal">
 
-Use comments in the HTML identifying exactly where I should insert:
+            <div class="section-index">07 — SYSTEM ARCHITECTURE</div>
 
-* hydrofoil photographs;
-* motor photograph;
-* wiring diagram;
-* architecture diagram;
-* conference poster;
-* abstract PDF;
-* GitHub screenshots.
+            <h2>The motor worked. Then I realized the architecture didn't scale.</h2>
 
-The final result should feel like a **compact engineering research lab portfolio**, with the narrative centered on one question:
+            <p>
+                Direct Arduino control was useful for one actuator. A larger
+                experimental facility would eventually require multiple
+                actuators, controllers, sensors, stations, communication
+                channels, and centralized monitoring.
+            </p>
 
-> **How can independent components become a unified system?**
+            <div class="collaboration-note">
+                <span>COLLABORATIVE WORK</span>
+                The broader ECU/SCADA architecture was developed in
+                collaboration with the UMass research team.
+            </div>
 
-The visitor should finish the website understanding not only **what I built**, but **how I learned to think about engineering systems by building it**.
+        </div>
+
+
+        <!-- ARCHITECTURE TOGGLE -->
+
+        <div class="architecture-switcher reveal">
+
+            <button class="architecture-tab active" data-architecture="before">
+                Before
+            </button>
+
+            <button class="architecture-tab" data-architecture="after">
+                Modular direction
+            </button>
+
+        </div>
+
+
+        <div class="architecture-view reveal">
+
+            <!-- BEFORE -->
+
+            <div class="architecture-panel active" id="architecture-before">
+
+                <div class="architecture-caption">
+                    <span>INITIAL ACTUATION PATH</span>
+                    <strong>One controller → one actuator</strong>
+                </div>
+
+                <div class="vertical-architecture">
+
+                    <div class="arch-box host">
+                        <small>HOST</small>
+                        <strong>SCADA / PC</strong>
+                    </div>
+
+                    <div class="arch-line"></div>
+
+                    <div class="arch-box">
+                        <small>CONTROLLER</small>
+                        <strong>Arduino</strong>
+                    </div>
+
+                    <div class="arch-line"></div>
+
+                    <div class="arch-box">
+                        <small>DRIVER</small>
+                        <strong>Motor Driver</strong>
+                    </div>
+
+                    <div class="arch-line"></div>
+
+                    <div class="arch-box actuator">
+                        <small>ACTUATOR</small>
+                        <strong>Motor</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AFTER -->
+
+            <div class="architecture-panel" id="architecture-after">
+
+                <div class="architecture-caption">
+                    <span>MODULAR DIRECTION</span>
+                    <strong>Supervision separated from hardware</strong>
+                </div>
+
+                <div class="modular-architecture">
+
+                    <div class="arch-box host large">
+                        <small>SUPERVISORY LAYER</small>
+                        <strong>SCADA / HOST PC</strong>
+                    </div>
+
+                    <div class="arch-line"></div>
+
+                    <div class="arch-box">
+                        <small>COMMUNICATION</small>
+                        <strong>Protocol Layer</strong>
+                    </div>
+
+                    <div class="arch-line"></div>
+
+                    <div class="arch-box">
+                        <small>CONTROLLER</small>
+                        <strong>ECU / Controller</strong>
+                    </div>
+
+                    <div class="arch-line"></div>
+
+                    <div class="arch-layer-row">
+
+                        <div class="arch-box small-box">
+                            <small>ECU 01</small>
+                            <strong>Pump</strong>
+                        </div>
+
+                        <div class="arch-box small-box">
+                            <small>ECU 02</small>
+                            <strong>Gantry</strong>
+                        </div>
+
+                        <div class="arch-box small-box selected">
+                            <small>ECU 03</small>
+                            <strong>Hydrofoil</strong>
+                        </div>
+
+                        <div class="arch-box small-box">
+                            <small>ECU 04</small>
+                            <strong>Wave</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="architecture-principle reveal">
+
+            <div class="principle-symbol">↕</div>
+
+            <div>
+                <span class="mono-label">DESIGN PRINCIPLE</span>
+
+                <h3>
+                    Change the hardware without rebuilding
+                    the entire supervisory layer.
+                </h3>
+
+                <p>
+                    The purpose of abstraction is to keep the higher-level
+                    system insulated from device-specific implementation
+                    wherever practical.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SOFTWARE ARCHITECTURE
+========================================================= -->
+<section class="section section-dark" id="software">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-index">08 — SOFTWARE ARCHITECTURE</div>
+
+            <h2>A codebase designed around layers.</h2>
+
+            <p>
+                The repository separates system responsibilities into modules
+                so that the supervisory layer does not need to know every
+                hardware-specific detail.
+            </p>
+
+        </div>
+
+
+        <div class="software-explorer reveal">
+
+            <div class="software-sidebar">
+
+                <button class="software-module active" data-module="system">
+                    <span>01</span>
+                    system
+                </button>
+
+                <button class="software-module" data-module="controller">
+                    <span>02</span>
+                    controller
+                </button>
+
+                <button class="software-module" data-module="device">
+                    <span>03</span>
+                    device
+                </button>
+
+                <button class="software-module" data-module="actuators">
+                    <span>04</span>
+                    actuators
+                </button>
+
+                <button class="software-module" data-module="boards">
+                    <span>05</span>
+                    boards
+                </button>
+
+                <button class="software-module" data-module="firmware">
+                    <span>06</span>
+                    firmware
+                </button>
+
+                <button class="software-module" data-module="protocol">
+                    <span>07</span>
+                    protocol
+                </button>
+
+                <button class="software-module" data-module="transport">
+                    <span>08</span>
+                    transport
+                </button>
+
+                <button class="software-module" data-module="signals">
+                    <span>09</span>
+                    signals
+                </button>
+
+                <button class="software-module" data-module="discovery">
+                    <span>10</span>
+                    discovery
+                </button>
+
+            </div>
+
+
+            <div class="software-content">
+
+                <div class="software-file-path">
+                    src / <span id="softwarePath">system</span> /
+                </div>
+
+                <div class="software-content-main">
+
+                    <div class="software-number" id="softwareNumber">
+                        01
+                    </div>
+
+                    <div>
+
+                        <h3 id="softwareTitle">system</h3>
+
+                        <p id="softwareDescription">
+                            Coordinates higher-level system behavior and
+                            provides the conceptual entry point for the
+                            supervisory architecture.
+                        </p>
+
+                        <div class="software-tags" id="softwareTags">
+                            <span>system-level</span>
+                            <span>architecture</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="repository-tree reveal">
+
+<pre><span class="tree-folder">src/</span>
+├── <span class="tree-folder">actuators/</span>
+├── <span class="tree-folder">boards/</span>
+├── <span class="tree-folder">controller/</span>
+├── <span class="tree-folder">device/</span>
+├── <span class="tree-folder">discovery/</span>
+├── <span class="tree-folder">firmware/</span>
+├── <span class="tree-folder">protocol/</span>
+├── <span class="tree-folder">signals/</span>
+├── <span class="tree-folder">system/</span>
+└── <span class="tree-folder">transport/</span>
+
+<span class="tree-folder">ArduinoCode/</span>
+<span class="tree-folder">web_dashboard/</span>
+<span class="tree-folder">tasks/</span></pre>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SCADA VISION
+========================================================= -->
+<section class="section section-light">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-index">09 — SCADA VISION</div>
+
+            <h2>The goal: one supervisory layer for many experimental systems.</h2>
+
+            <p>
+                The Python SCADA work explores how supervisory control,
+                hardware abstraction, communication, simulation, monitoring,
+                and controller coordination could eventually coexist above
+                individual experimental stations.
+            </p>
+
+        </div>
+
+
+        <div class="scada-visual reveal">
+
+            <div class="scada-layer scada-top">
+                <span>HMI / SUPERVISION</span>
+                <strong>SCADA / Host PC</strong>
+            </div>
+
+            <div class="scada-connection"></div>
+
+            <div class="scada-layer">
+                <span>SUPERVISORY</span>
+                <strong>Control + Coordination</strong>
+            </div>
+
+            <div class="scada-connection"></div>
+
+            <div class="scada-layer">
+                <span>COMMUNICATION</span>
+                <strong>Protocol / Transport</strong>
+            </div>
+
+            <div class="scada-connection"></div>
+
+            <div class="scada-ecu-grid">
+
+                <div class="scada-ecu">
+                    <span>ECU 01</span>
+                    <strong>Pump</strong>
+                </div>
+
+                <div class="scada-ecu">
+                    <span>ECU 02</span>
+                    <strong>Gantry</strong>
+                </div>
+
+                <div class="scada-ecu active">
+                    <span>ECU 03</span>
+                    <strong>Hydrofoil</strong>
+                </div>
+
+                <div class="scada-ecu">
+                    <span>ECU 04</span>
+                    <strong>Wave</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="future-status reveal">
+
+            <div class="status-card complete">
+                <span>IMPLEMENTED / EXPLORED</span>
+                <strong>Modular software architecture</strong>
+            </div>
+
+            <div class="status-card complete">
+                <span>IMPLEMENTED / EXPLORED</span>
+                <strong>Simulation backend</strong>
+            </div>
+
+            <div class="status-card future">
+                <span>FUTURE WORK</span>
+                <strong>Full production dashboard</strong>
+            </div>
+
+            <div class="status-card future">
+                <span>FUTURE WORK</span>
+                <strong>Full multi-ECU deployment</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REPOSITORY
+========================================================= -->
+<section class="section section-dark" id="repository">
+
+    <div class="container">
+
+        <div class="repository-header reveal">
+
+            <div>
+                <div class="section-index">10 — IMPLEMENTATION</div>
+
+                <h2>Explore the implementation.</h2>
+
+                <p>
+                    The public repository documents the transition from
+                    actuator-specific firmware toward a modular control
+                    architecture.
+                </p>
+            </div>
+
+            <a
+                href="https://github.com/LittlePrince-king/hydrofoil-scada-system"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="button button-primary"
+            >
+                Open GitHub Repository ↗
+            </a>
+
+        </div>
+
+
+        <div class="repo-explorer reveal">
+
+            <div class="repo-tree">
+
+                <button class="repo-folder active" data-repo="src">
+                    <span>▾</span> src/
+                </button>
+
+                <button class="repo-folder child" data-repo="actuators">
+                    actuators/
+                </button>
+
+                <button class="repo-folder child" data-repo="boards">
+                    boards/
+                </button>
+
+                <button class="repo-folder child" data-repo="controller">
+                    controller/
+                </button>
+
+                <button class="repo-folder child" data-repo="device">
+                    device/
+                </button>
+
+                <button class="repo-folder child" data-repo="discovery">
+                    discovery/
+                </button>
+
+                <button class="repo-folder child" data-repo="firmware">
+                    firmware/
+                </button>
+
+                <button class="repo-folder child" data-repo="protocol">
+                    protocol/
+                </button>
+
+                <button class="repo-folder child" data-repo="signals">
+                    signals/
+                </button>
+
+                <button class="repo-folder child" data-repo="system">
+                    system/
+                </button>
+
+                <button class="repo-folder child" data-repo="transport">
+                    transport/
+                </button>
+
+                <button class="repo-folder" data-repo="arduino">
+                    ArduinoCode/
+                </button>
+
+                <button class="repo-folder" data-repo="dashboard">
+                    web_dashboard/
+                </button>
+
+                <button class="repo-folder" data-repo="tasks">
+                    tasks/
+                </button>
+
+            </div>
+
+
+            <div class="repo-info">
+
+                <span class="mono-label">REPOSITORY MODULE</span>
+
+                <h3 id="repoTitle">src/</h3>
+
+                <p id="repoDescription">
+                    Core source tree containing the modular software layers.
+                </p>
+
+                <div class="repo-role">
+                    <span>ROLE</span>
+                    <strong id="repoRole">
+                        Software architecture
+                    </strong>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- GITHUB SCREENSHOT PLACEHOLDER -->
+        <div class="media-placeholder dark-placeholder reveal">
+            <!-- INSERT GITHUB SCREENSHOT HERE -->
+            <div class="placeholder-icon">CODE</div>
+            <div>
+                <strong>Repository screenshot</strong>
+                <span>Place a screenshot in assets/images/</span>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESEARCH
+========================================================= -->
+<section class="section section-light" id="research">
+
+    <div class="container">
+
+        <div class="research-card reveal">
+
+            <div class="research-card-top">
+
+                <div class="section-index">11 — RESEARCH COMMUNICATION</div>
+
+                <div class="research-badge">
+                    FIRST-AUTHOR RESEARCH CONTRIBUTION
+                </div>
+
+            </div>
+
+
+            <h2>
+                From prototype to research communication.
+            </h2>
+
+            <h3>
+                Design and Implementation of Embedded Controller Arrays
+                for Marine Energy Prototype Actuation
+            </h3>
+
+
+            <div class="authors">
+
+                <div>
+                    <strong>Yatharth Rajakumar</strong>
+                    <span>First author</span>
+                </div>
+
+                <div>
+                    <strong>Jose Jesus Mora Amaro</strong>
+                </div>
+
+                <div>
+                    <strong>Dr. Muhammad Sohail Hasan</strong>
+                </div>
+
+                <div>
+                    <strong>Prof. Krish Thiagarajan Sharman</strong>
+                </div>
+
+            </div>
+
+
+            <div class="research-meta">
+
+                <div>
+                    <span>AFFILIATION</span>
+                    <strong>University of Massachusetts Amherst</strong>
+                </div>
+
+                <div>
+                    <span>VENUE</span>
+                    <strong>2026 UMERC + METS</strong>
+                </div>
+
+            </div>
+
+
+            <div class="research-actions">
+
+                <button class="button button-primary" id="openPdfResearch">
+                    Read Public Abstract ↗
+                </button>
+
+                <a
+                    href="https://umerc2026.exordo.com/programme/presentation/157"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="button button-secondary light-button"
+                >
+                    Conference Presentation ↗
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PDF PLACEHOLDER -->
+        <div class="document-placeholder reveal">
+
+            <!-- INSERT PDF IN assets/documents/ -->
+            <div>
+                <span class="document-type">PUBLIC DOCUMENT</span>
+                <strong>UMERC 2026 ECU Prototype</strong>
+                <p>
+                    The PDF viewer opens the publicly available research document.
+                </p>
+            </div>
+
+            <button class="text-button" id="openPdfDocument">
+                Open document →
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTRIBUTION
+========================================================= -->
+<section class="section section-dark" id="contribution">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-index">12 — PERSONAL CONTRIBUTION</div>
+
+            <h2>What I actually did.</h2>
+
+            <p>
+                A credible engineering portfolio should make the boundary
+                between individual contribution, collaboration, and future
+                work explicit.
+            </p>
+
+        </div>
+
+
+        <div class="contribution-tabs reveal">
+
+            <button class="contribution-tab active" data-contribution="implemented">
+                Designed / Implemented
+            </button>
+
+            <button class="contribution-tab" data-contribution="collaborative">
+                Collaborative
+            </button>
+
+            <button class="contribution-tab" data-contribution="future">
+                Not Yet Completed
+            </button>
+
+        </div>
+
+
+        <div class="contribution-panel active reveal" id="contribution-implemented">
+
+            <div class="contribution-intro">
+                <span>MY DIRECT WORK</span>
+                <strong>Hardware integration → embedded control → software architecture</strong>
+            </div>
+
+            <div class="contribution-list">
+
+                <div>Complete hydrofoil motor-control subsystem</div>
+                <div>Motor-driver integration</div>
+                <div>Arduino control firmware</div>
+                <div>STEP/DIR signaling</div>
+                <div>Electromagnetic brake control</div>
+                <div>Relay integration</div>
+                <div>Power and signal wiring</div>
+                <div>Mechanical timing-belt integration</div>
+                <div>Target-angle control</div>
+                <div>Oscillation control</div>
+                <div>Static positioning tests</div>
+                <div>Angular repeatability testing</div>
+                <div>Microstepping / angle mismatch debugging</div>
+                <div>Hardware abstraction implementation</div>
+                <div>Python SCADA framework development</div>
+                <div>Simulation backend work</div>
+
+            </div>
+
+        </div>
+
+
+        <div class="contribution-panel reveal" id="contribution-collaborative">
+
+            <div class="contribution-intro">
+                <span>UMASS RESEARCH TEAM</span>
+                <strong>Work developed collaboratively</strong>
+            </div>
+
+            <div class="contribution-list">
+
+                <div>Overall ECU / SCADA architecture</div>
+                <div>Distributed controller concept</div>
+                <div>Laboratory-wide scalability framework</div>
+                <div>Research poster and conference contribution</div>
+
+            </div>
+
+        </div>
+
+
+        <div class="contribution-panel reveal" id="contribution-future">
+
+            <div class="contribution-intro">
+                <span>TRANSPARENT SCOPE</span>
+                <strong>What remains future work</strong>
+            </div>
+
+            <div class="contribution-list">
+
+                <div>Full production SCADA dashboard</div>
+                <div>Full multi-ECU deployment</div>
+                <div>Full hydrodynamic flow characterization by Yatharth</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ENGINEERING LESSONS
+========================================================= -->
+<section class="section section-light">
+
+    <div class="container">
+
+        <div class="section-heading reveal">
+
+            <div class="section-index">13 — ENGINEERING LESSONS</div>
+
+            <h2>What the system taught me.</h2>
+
+        </div>
+
+
+        <div class="lesson-grid">
+
+            <article class="lesson-card reveal">
+
+                <span>01</span>
+
+                <h3>Physical assumptions matter.</h3>
+
+                <p>
+                    A software constant is meaningless if it does not match
+                    the physical configuration it represents.
+                </p>
+
+            </article>
+
+
+            <article class="lesson-card reveal">
+
+                <span>02</span>
+
+                <h3>Debugging is part of design.</h3>
+
+                <p>
+                    The microstepping mismatch became a lesson about validating
+                    interfaces between abstraction layers.
+                </p>
+
+            </article>
+
+
+            <article class="lesson-card reveal">
+
+                <span>03</span>
+
+                <h3>Systems are more than components.</h3>
+
+                <p>
+                    A motor, driver, controller, communication protocol, and
+                    supervisory layer must work together.
+                </p>
+
+            </article>
+
+
+            <article class="lesson-card reveal">
+
+                <span>04</span>
+
+                <h3>Architecture determines scalability.</h3>
+
+                <p>
+                    A solution that works for one actuator can become a
+                    bottleneck when the system grows.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CLOSING
+========================================================= -->
+<section class="closing-section">
+
+    <div class="closing-grid"></div>
+
+    <div class="container closing-content">
+
+        <div class="section-index">14 — REFLECTION</div>
+
+        <h2>
+            I started with a motor
+            <span>I didn't understand.</span>
+        </h2>
+
+        <p>
+            I began this project knowing very little about stepper motors,
+            embedded control, or supervisory systems. I finished with a
+            working hydrofoil actuation subsystem and a deeper understanding
+            of how mechanical hardware, electronics, software, and control
+            architecture interact.
+        </p>
+
+        <p>
+            The most important result was not simply that the hydrofoil moved.
+            It was learning how to enter an unfamiliar engineering problem,
+            isolate what I didn't understand, test assumptions, recover from
+            failures, and gradually build a system in which the pieces could
+            work together.
+        </p>
+
+        <div class="closing-line">
+            The shaft moved first.
+            <span>The systems thinking came after.</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="site-footer">
+
+    <div class="container footer-content">
+
+        <div>
+            <strong>Yatharth Rajakumar</strong>
+            <span>Hydrofoil Actuation & Modular SCADA Control</span>
+        </div>
+
+        <div class="footer-links">
+
+            <a
+                href="https://github.com/LittlePrince-king/hydrofoil-scada-system"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub ↗
+            </a>
+
+            <a
+                href="https://umerc2026.exordo.com/programme/presentation/157"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                UMERC ↗
+            </a>
+
+            <a href="#top">Back to top ↑</a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     PDF MODAL
+========================================================= -->
+<div
+    class="modal"
+    id="pdfModal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="pdfModalTitle"
+>
+
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-window">
+
+        <div class="modal-header">
+
+            <div>
+                <span class="mono-label">RESEARCH DOCUMENT</span>
+                <h3 id="pdfModalTitle">UMERC 2026 ECU Prototype</h3>
+            </div>
+
+            <button
+                class="modal-close"
+                id="closePdf"
+                aria-label="Close document"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div class="pdf-container">
+
+            <iframe
+                src="https://umerc2026.exordo.com/files/papers/174/final_draft/UMERC_2026_ECU_Prototype.pdf"
+                title="UMERC 2026 ECU Prototype PDF"
+            ></iframe>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
