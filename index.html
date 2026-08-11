@@ -1,0 +1,697 @@
+Build a polished, technically credible **engineering research portfolio website** for a high-school aerospace/mechanical engineering student, Yatharth Rajakumar, showcasing his work on a **hydrofoil actuation and supervisory control system developed at the University of Massachusetts Amherst Ocean Resources and Renewable Energy Laboratory (ORRELab)**.
+
+The website will be submitted as part of a STEM/engineering college admissions portfolio. It should feel like a serious engineering project page written for an engineering professor or researcher—not like a generic high-school project website.
+
+## Core story
+
+The central story is:
+
+> The hardest moment was when I was first handed the motor and had no idea what to do with it. When the shaft finally moved, I realized I had learned how to actuate a hydrofoil. I started the project with almost no expectations and finished understanding an entirely new engineering domain: how mechanical hardware, electronics, embedded software, control systems, communication layers, and supervisory software interact as one system.
+
+The website should communicate **curiosity, learning, systems thinking, experimentation, and engineering growth**.
+
+Do NOT portray Yatharth as having independently invented the entire laboratory architecture. Clearly distinguish between:
+
+* what Yatharth personally designed and implemented;
+* what was developed collaboratively with the UMass research team;
+* what was planned but not yet fully implemented.
+
+## Project title
+
+Use:
+
+**Hydrofoil Actuation & Modular SCADA Control**
+
+Subtitle:
+
+**Designing a precision actuation subsystem and building the software architecture around it**
+
+Include:
+
+**Yatharth Rajakumar**
+Amherst Regional High School
+University of Massachusetts Amherst — Ocean Resources and Renewable Energy Laboratory
+
+Do not exaggerate his role.
+
+---
+
+# 1. HERO SECTION
+
+Create a visually striking hero section.
+
+Headline:
+
+**From a motor I didn't understand to a system I could control.**
+
+Supporting text:
+
+A hydrofoil actuation system developed for controlled marine-energy experiments, evolving from low-level Arduino motor control into a modular, hardware-agnostic supervisory architecture.
+
+Buttons:
+
+* **Explore the System**
+* **View Research Poster**
+* **View GitHub**
+
+The GitHub button should link to:
+
+https://github.com/LittlePrince-king/hydrofoil-scada-system
+
+The research presentation/public abstract is:
+
+https://umerc2026.exordo.com/programme/presentation/157
+
+The final public abstract/PDF is:
+
+https://umerc2026.exordo.com/files/papers/174/final_draft/UMERC_2026_ECU_Prototype.pdf
+
+Use subtle animated technical graphics in the background: coordinate axes, motor pulses, signal traces, angular measurements, or a simplified hydrofoil silhouette.
+
+Do NOT make the page flashy or gamer-like.
+
+---
+
+# 2. THE QUESTION
+
+Create a section introducing the engineering problem.
+
+Heading:
+
+**How do you make a hydrofoil move precisely enough to become an experiment?**
+
+Explain that marine-energy experiments require controlled positioning and repeatable actuation. The hydrofoil needed to:
+
+* move to defined angular positions;
+* return to a known reference position;
+* oscillate between two positions;
+* hold its position using an electromagnetic brake;
+* eventually communicate with higher-level experimental control systems.
+
+Explain that the project began as a practical hardware problem and evolved into a systems-engineering problem.
+
+Use a visual progression:
+
+**Mechanical system → Motor → Driver → Microcontroller → Control logic → Supervisory software**
+
+---
+
+# 3. STARTING FROM ZERO
+
+Create a narrative section called:
+
+**I was handed a motor. I had to figure out the rest.**
+
+Explain that the initial challenge was not simply writing code. Yatharth had to learn:
+
+* stepper motor operation;
+* microstepping;
+* closed-loop motor control;
+* STEP/DIR signaling;
+* electromagnetic brake control;
+* relay operation;
+* Arduino hardware interfaces;
+* timing and pulse generation;
+* mechanical coupling through a timing belt;
+* angular positioning.
+
+Emphasize the learning process rather than claiming prior expertise.
+
+Use an interactive-looking timeline:
+
+**Motor → Wiring → First Movement → Position Control → Oscillation → Accuracy Testing → Abstraction → SCADA**
+
+---
+
+# 4. HARDWARE SYSTEM
+
+Create a technical hardware section.
+
+Display the major components as cards:
+
+### Controller
+
+Arduino UNO R3
+
+### Motor Driver
+
+CL57T V4.1 Closed-Loop Stepper Driver
+
+### Actuator
+
+NEMA 17 closed-loop stepper motor with encoder and electromagnetic brake
+
+### Power
+
+24 V DC power supply
+
+### Brake Control
+
+Relay module
+
+### Mechanical Transmission
+
+Timing belt / hydrofoil shaft coupling
+
+### Development Equipment
+
+JESVERTY bench power supply
+
+State clearly:
+
+**Yatharth designed and integrated the entire motor-control subsystem around the provided motor.**
+
+The motor itself was not designed by Yatharth.
+
+Mention that the hardware integration included:
+
+* power distribution;
+* STEP/DIR control;
+* brake relay control;
+* shared signal grounds;
+* motor-driver wiring;
+* mechanical coupling;
+* Arduino firmware.
+
+Create a clean schematic-style visual showing:
+
+24 V Supply
+↓
+CL57T Driver → NEMA 17 → Timing Belt → Hydrofoil
+
+and separately:
+
+Arduino → STEP/DIR → Driver
+Arduino → Relay → Electromagnetic Brake
+
+---
+
+# 5. ORIGINAL CONTROL SYSTEM
+
+Create a section called:
+
+**The first system was deliberately low-level.**
+
+Explain that the original implementation used Arduino firmware to directly generate motor pulses and control the brake.
+
+Mention:
+
+* STEP pin: D4
+* DIR pin: D3
+* Brake relay: D7
+* 12,500 pulses/revolution was initially used in the firmware
+* target-angle calculations
+* pulse timing
+* serial command for returning to home
+* static positioning mode
+* oscillation mode
+
+Do NOT present the old code as the final architecture.
+
+Include a collapsible code viewer containing a representative excerpt of the original Arduino implementation.
+
+Use syntax highlighting.
+
+---
+
+# 6. THE FAILURE THAT CHANGED THE DESIGN
+
+This should be one of the most important sections.
+
+Heading:
+
+**The motor taught me that code can be correct and still be wrong.**
+
+Explain the microstepping mismatch.
+
+The motor/driver configuration and the value assumed in the firmware did not initially match. The result was a mismatch between commanded and actual angular movement.
+
+Do not invent exact details that are unknown.
+
+Explain the engineering lesson:
+
+> A control system is only as accurate as the assumptions connecting its physical and software layers.
+
+Show a visual:
+
+**Assumed microstepping → commanded angle → actual motion**
+
+with the mismatch highlighted.
+
+Then show the correction process:
+
+**Identify mismatch → inspect driver configuration → reconcile pulse/revolution assumptions → retest**
+
+This should demonstrate debugging rather than hiding failure.
+
+---
+
+# 7. ACCURACY TESTING
+
+Create a section called:
+
+**Could it actually return where I told it to?**
+
+Explain the angular repeatability test.
+
+The system was moved approximately 90 degrees, then commanded through approximately 3-degree increments 30 times, returning to the original position.
+
+The purpose was to test approximately ±1° angular positioning/repeatability.
+
+Also mention the earlier static and oscillation tests.
+
+Results to communicate carefully:
+
+* motor completed commanded movements;
+* no obvious missed-step behavior was observed;
+* the system returned to the original position after repeated incremental movements;
+* electromagnetic brake control functioned;
+* static positioning and oscillation behavior were demonstrated.
+
+IMPORTANT:
+
+Do NOT claim that full hydrodynamic/flume performance was validated.
+
+Yatharth **did not conduct the final flow experiments**.
+
+State explicitly:
+
+**Scope boundary:**
+This project focused on designing and validating the actuation subsystem. Full hydrodynamic characterization was outside Yatharth's testing scope.
+
+---
+
+# 8. FROM HARDWARE TO SYSTEM ARCHITECTURE
+
+This is the key advanced engineering section.
+
+Heading:
+
+**The motor worked. Then I realized the architecture didn't scale.**
+
+Explain that direct Arduino code worked for one actuator, but a larger experimental facility would eventually require:
+
+* multiple actuators;
+* different microcontrollers;
+* different motor drivers;
+* different sensors;
+* different experimental stations;
+* centralized monitoring;
+* data acquisition;
+* synchronization.
+
+Therefore, Yatharth contributed to the transition toward a modular architecture.
+
+Show:
+
+### Before
+
+SCADA / PC
+↓
+Arduino
+↓
+Driver
+↓
+Motor
+
+### After
+
+SCADA / Host PC
+↓
+Communication Layer
+↓
+ECU / Controller
+↓
+Device Abstraction
+↓
+Driver Abstraction
+↓
+Actuator
+
+with multiple ECUs:
+
+**Pump ECU | Gantry ECU | Wave ECU | Prototype ECU**
+
+Explain that the architecture was developed **in collaboration with the UMass research team**, rather than solely by Yatharth.
+
+---
+
+# 9. HARDWARE ABSTRACTION / SOFTWARE ARCHITECTURE
+
+Create an interactive architecture diagram based on the actual repository structure.
+
+Show:
+
+```text
+SCADA
+│
+├── system
+├── controller
+├── device
+├── actuators
+├── boards
+├── firmware
+├── protocol
+├── transport
+├── signals
+└── discovery
+```
+
+Explain that the purpose is to allow hardware components to be exchanged without rewriting the supervisory layer.
+
+Example:
+
+```text
+SCADA
+  ↓
+Controller Interface
+  ↓
+Actuator Interface
+  ↓
+Motor Driver Interface
+  ↓
+Arduino / Other Controller
+```
+
+The key concept should be:
+
+**Change the hardware without rebuilding the entire supervisory system.**
+
+Make this interactive if practical:
+
+* clicking a layer reveals its responsibility;
+* hovering over a module shows its purpose.
+
+Do not invent specific functionality that isn't supported by the repository.
+
+---
+
+# 10. SCADA VISION
+
+Heading:
+
+**The goal: one supervisory layer for many experimental systems.**
+
+Explain that the Python SCADA system was designed to eventually provide:
+
+* supervisory control;
+* hardware abstraction;
+* communication;
+* monitoring;
+* simulation;
+* controller coordination;
+* centralized oversight.
+
+The dashboard is **not fully developed yet**.
+
+Be transparent.
+
+Show a conceptual architecture:
+
+```text
+                  SCADA / HMI
+                      │
+              Supervisory Layer
+                      │
+              Communication
+                      │
+        ┌─────────────┼─────────────┐
+        ↓             ↓             ↓
+      ECU 1         ECU 2         ECU 3
+        ↓             ↓             ↓
+     Pump          Gantry        Hydrofoil
+```
+
+Mention that the repository already contains a simulation backend and modular software architecture, but the full production dashboard remains future work.
+
+---
+
+# 11. REPOSITORY EXPLORER
+
+Create a section:
+
+**Explore the implementation**
+
+Show the actual repository structure:
+
+```text
+src/
+├── actuators/
+├── boards/
+├── controller/
+├── device/
+├── discovery/
+├── firmware/
+├── protocol/
+├── signals/
+├── system/
+└── transport/
+
+ArduinoCode/
+web_dashboard/
+tasks/
+```
+
+Each folder should have a short explanation.
+
+Include a button:
+
+**Open the full GitHub repository**
+
+linking to:
+
+https://github.com/LittlePrince-king/hydrofoil-scada-system
+
+Make this look like a miniature codebase explorer.
+
+---
+
+# 12. RESEARCH PUBLICATION / CONFERENCE
+
+Create a section:
+
+**From prototype to research communication**
+
+Display:
+
+**Design and Implementation of Embedded Controller Arrays for Marine Energy Prototype Actuation**
+
+Authors:
+
+Yatharth Rajakumar
+Jose Jesus Mora Amaro
+Dr. Muhammad Sohail Hasan
+Prof. Krish Thiagarajan Sharman
+
+Affiliation:
+
+University of Massachusetts Amherst
+
+Explain that the work was presented/accepted as part of:
+
+**2026 University Marine Energy Research Conference + Marine Energy Technology Symposium (UMERC+METS)**
+
+Make clear that Yatharth is a **first author**.
+
+Do not call first authorship an "award."
+
+Instead say:
+
+**First-author research contribution**
+
+Add buttons:
+
+* **Read Abstract**
+* **View Conference Presentation**
+
+Use:
+
+https://umerc2026.exordo.com/programme/presentation/157
+
+and
+
+https://umerc2026.exordo.com/files/papers/174/final_draft/UMERC_2026_ECU_Prototype.pdf
+
+If the browser supports PDF embedding, embed the PDF in a viewer.
+
+---
+
+# 13. WHAT I ACTUALLY DID
+
+Create a very clear personal-contribution section.
+
+Heading:
+
+**My contribution**
+
+Use a two-column layout.
+
+### Designed / Implemented by Yatharth
+
+* Complete hydrofoil motor-control subsystem
+* Motor-driver integration
+* Arduino control firmware
+* STEP/DIR signaling
+* Brake control
+* Relay integration
+* Power and signal wiring
+* Mechanical timing-belt integration
+* Target-angle control
+* Oscillation control
+* Static positioning tests
+* Angular repeatability testing
+* Debugging microstepping/angle mismatch
+* Hardware abstraction implementation in the software architecture
+* Python SCADA framework development
+* Simulation backend work
+
+### Developed collaboratively
+
+* Overall ECU/SCADA architecture
+* Distributed controller concept
+* Laboratory-wide scalability framework
+* Research poster and conference contribution
+
+### Not yet completed
+
+* Full production SCADA dashboard
+* Full multi-ECU deployment
+* Full hydrodynamic flow characterization by Yatharth
+
+This section is extremely important for credibility.
+
+---
+
+# 14. ENGINEERING LESSONS
+
+Create four cards:
+
+### Physical assumptions matter
+
+A software constant is meaningless if it does not match the physical configuration.
+
+### Debugging is part of design
+
+The microstepping mismatch became a lesson about validating interfaces between abstraction layers.
+
+### Systems are more than components
+
+A motor, driver, controller, communication protocol, and supervisory layer must work together.
+
+### Architecture determines scalability
+
+A solution that works for one actuator may become a bottleneck when the system grows.
+
+---
+
+# 15. CLOSING STORY
+
+End with a visually strong section.
+
+Heading:
+
+**I started with a motor I didn't understand.**
+
+Text:
+
+I began this project knowing very little about stepper motors, embedded control, or supervisory systems. I finished with a working hydrofoil actuation subsystem and a deeper understanding of how mechanical hardware, electronics, software, and control architecture interact.
+
+The most important result was not simply that the hydrofoil moved.
+
+It was learning how to enter an unfamiliar engineering problem, isolate what I didn't understand, test assumptions, recover from failures, and gradually build a system in which the pieces could work together.
+
+Final line:
+
+**The shaft moved first. The systems thinking came after.**
+
+---
+
+# DESIGN LANGUAGE
+
+Use a sophisticated engineering aesthetic.
+
+Visual direction:
+
+* dark navy / charcoal background;
+* white text;
+* restrained cyan/blue engineering accents;
+* thin technical lines;
+* subtle grid backgrounds;
+* diagrams;
+* monospace labels;
+* clean sans-serif typography;
+* occasional large numerical callouts;
+* generous whitespace.
+
+Do NOT use:
+
+* cheesy rocket clipart;
+* generic AI-generated engineering imagery;
+* excessive gradients;
+* neon gamer aesthetics;
+* giant animations;
+* stock photos of laboratories;
+* fake data;
+* fake graphs.
+
+Use actual project images where available.
+
+---
+
+# TECHNICAL IMPLEMENTATION
+
+Build this as a static website using:
+
+* `index.html`
+* `style.css`
+* `script.js`
+
+No backend required.
+
+Make it GitHub Pages compatible.
+
+Requirements:
+
+* fully responsive;
+* desktop and mobile layouts;
+* smooth scrolling;
+* sticky navigation;
+* section highlighting;
+* scroll reveal animations;
+* accessible contrast;
+* keyboard-friendly navigation;
+* responsive diagrams;
+* PDF viewer/embedded document section;
+* GitHub links;
+* external links open in new tabs;
+* no frameworks unless absolutely necessary.
+
+The website must load quickly.
+
+Organize assets cleanly:
+
+```text
+assets/
+├── images/
+├── diagrams/
+├── documents/
+└── icons/
+```
+
+Create placeholder paths for images/documents rather than inventing images.
+
+Use comments in the HTML identifying exactly where I should insert:
+
+* hydrofoil photographs;
+* motor photograph;
+* wiring diagram;
+* architecture diagram;
+* conference poster;
+* abstract PDF;
+* GitHub screenshots.
+
+The final result should feel like a **compact engineering research lab portfolio**, with the narrative centered on one question:
+
+> **How can independent components become a unified system?**
+
+The visitor should finish the website understanding not only **what I built**, but **how I learned to think about engineering systems by building it**.
